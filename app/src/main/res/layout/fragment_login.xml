@@ -1,11 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/bg_login_gradient"
+        android:padding="@dimen/indent_x2"
         tools:context=".screens.LoginFragment">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/indent_x2">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/indent_x1">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:hint="@string/hint_login"
+                    android:inputType="textVisiblePassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayoutPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/indent_x1"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/loginBackgroundColor">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTextPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:hint="@string/hint_password"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/buttonSignIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/indent_x1"
+                android:background="@color/loginBackgroundColor"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/sign_in_btn_text"
+                android:textColor="@color/white_100" />
+
+            <Button
+                android:id="@+id/buttonSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white_100"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/sign_up_btn_text"
+                android:textColor="@color/loginBackgroundColor" />
+        </LinearLayout>
     </FrameLayout>
 </layout>

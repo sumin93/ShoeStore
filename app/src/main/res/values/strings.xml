@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">ShoeStore</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_login">Login</string>
+    <string name="sign_in_btn_text">SIGN IN</string>
+    <string name="sign_up_btn_text">SIGN UP</string>
 </resources>
