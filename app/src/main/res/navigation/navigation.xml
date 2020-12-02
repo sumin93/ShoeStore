@@ -27,5 +27,15 @@
     <fragment
         android:id="@+id/tutorialFragment"
         android:name="com.udacity.shoestore.screens.TutorialFragment"
-        android:label="TutorialFragment" />
+        android:label="TutorialFragment" >
+        <action
+            android:id="@+id/action_tutorialFragment_to_shoeListFragment"
+            app:destination="@id/shoeListFragment"
+            app:popUpTo="@id/welcomeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoeListFragment"
+        android:name="com.udacity.shoestore.screens.ShoeListFragment"
+        android:label="ShoeListFragment" />
 </navigation>
