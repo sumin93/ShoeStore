@@ -18,19 +18,18 @@ class MainViewModel : ViewModel() {
     }
 
     init {
-        _shoeList.value = listOf(
-            Shoe(
-                "name1",
-                10.0,
-                "company",
-                "description"
-            ),
-            Shoe(
-                "name1",
-                10.0,
-                "company",
-                "description"
+        val defaultList = mutableListOf<Shoe>()
+        // Dummy data
+        for (i in 0 until 10) {
+            defaultList.add(
+                Shoe(
+                    name = "Name$i",
+                    company = "Company$i",
+                    size = i.toDouble(),
+                    description = "Description$i"
+                )
             )
-        )
+        }
+        _shoeList.value = defaultList
     }
 }

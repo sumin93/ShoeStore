@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/indent_x1"
-        android:background="@color/loginBackgroundColor"
+        android:background="#99ccbb"
         android:padding="@dimen/indent_x1">
 
         <ImageView
