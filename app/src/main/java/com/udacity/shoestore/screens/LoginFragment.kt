@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentLoginBinding
 
@@ -18,14 +18,14 @@ class LoginFragment : Fragment() {
     private lateinit var viewModel: LoginViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View {
         binding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.fragment_login,
-            container,
-            false
+                inflater,
+                R.layout.fragment_login,
+                container,
+                false
         )
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         return binding.root
@@ -49,7 +49,9 @@ class LoginFragment : Fragment() {
         }
         viewModel.isAuthorized.observe(viewLifecycleOwner) { authorized ->
             if (authorized) {
-                Toast.makeText(requireContext(), "AUTH", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(
+                        LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()
+                )
                 viewModel.authorizedStatusProcessed()
             }
         }
