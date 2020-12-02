@@ -10,10 +10,12 @@ import androidx.fragment.app.activityViewModels
 import com.udacity.shoestore.MainViewModel
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
+import com.udacity.shoestore.databinding.ItemShoeBinding
 import timber.log.Timber
 
 class ShoeListFragment : Fragment() {
 
+    private lateinit var activityViewModel: MainViewModel
     private lateinit var binding: FragmentShoeListBinding
 
     override fun onCreateView(
@@ -31,9 +33,25 @@ class ShoeListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val viewModel = activityViewModels<MainViewModel>().value
-        viewModel.shoeList.observe(viewLifecycleOwner) {
-            Timber.d(it.toString())
+        activityViewModel = activityViewModels<MainViewModel>().value
+        activityViewModel.shoeList.observe(viewLifecycleOwner) {
+            with(binding) {
+                linearLayoutContainerShoes.removeAllViews()
+                for (shoe in it) {
+                    val shoeItemBinding = DataBindingUtil.inflate<ItemShoeBinding>(
+                        layoutInflater,
+                        R.layout.item_shoe,
+                        linearLayoutContainerShoes,
+                        true
+                    )
+                    with(shoeItemBinding) {
+                        textViewName.text = shoe.name
+                        textViewCompany.text = shoe.company
+                        textViewDescription.text = shoe.description
+                        textViewSize.text = shoe.size.toString()
+                    }
+                }
+            }
         }
     }
 }

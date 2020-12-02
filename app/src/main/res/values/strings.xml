@@ -30,4 +30,8 @@
         3. if you can\'t get a loan sell your house or car and buy shoes.
     </string>
     <string name="button_accept">Accept</string>
+
+    <!--  Shoe list Fragment  -->
+    <string name="content_description_add_new_shoe">Add new shoe</string>
+    <string name="content_description_icon_shoe">Show icon</string>
 </resources>

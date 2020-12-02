@@ -24,6 +24,12 @@ class MainViewModel : ViewModel() {
                 10.0,
                 "company",
                 "description"
+            ),
+            Shoe(
+                "name1",
+                10.0,
+                "company",
+                "description"
             )
         )
     }

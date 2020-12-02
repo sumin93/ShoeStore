@@ -7,5 +7,28 @@
         android:layout_height="match_parent"
         tools:context=".screens.ShoeListFragment">
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayoutContainerShoes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:src="@drawable/ic_add"
+            android:contentDescription="@string/content_description_add_new_shoe"
+            android:layout_margin="@dimen/indent_x2"
+            android:layout_gravity="bottom|end"/>
+
     </FrameLayout>
 </layout>

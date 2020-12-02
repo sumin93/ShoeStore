@@ -3,5 +3,7 @@
     <dimen name="indent_x2">16dp</dimen>
     <dimen name="indent_x1">8dp</dimen>
     <dimen name="text_h1">32sp</dimen>
+    <dimen name="text_h2">24sp</dimen>
     <dimen name="text_h3">18sp</dimen>
+    <dimen name="text_h4">14sp</dimen>
 </resources>
