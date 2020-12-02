@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
 import com.udacity.shoestore.MainViewModel
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.databinding.ItemShoeBinding
-import timber.log.Timber
 
 class ShoeListFragment : Fragment() {
 
@@ -27,6 +27,11 @@ class ShoeListFragment : Fragment() {
             R.layout.fragment_shoe_list,
             container,
             false
+        )
+        binding.floatingActionButton.setOnClickListener(
+            Navigation.createNavigateOnClickListener(
+                ShoeListFragmentDirections.actionShoeListFragmentToAddShoeFragment()
+            )
         )
         return binding.root
     }
