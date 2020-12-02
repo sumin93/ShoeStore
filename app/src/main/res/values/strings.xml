@@ -34,4 +34,13 @@
     <!--  Shoe list Fragment  -->
     <string name="content_description_add_new_shoe">Add new shoe</string>
     <string name="content_description_icon_shoe">Show icon</string>
+
+    <!--  Add shoe Fragment  -->
+    <string name="add_new_shoe_label">Add new shoe</string>
+    <string name="name_hint">Name</string>
+    <string name="description_hint">Description</string>
+    <string name="company_hint">Company</string>
+    <string name="size_hint">Size</string>
+    <string name="add_shoe_button">Add shoe</string>
+    <string name="cancel_button">Cancel</string>
 </resources>
