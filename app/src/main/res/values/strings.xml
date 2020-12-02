@@ -23,5 +23,11 @@
     <string name="welcome_start">Show instructions</string>
 
     <!--  Tutorial Fragment  -->
-
+    <string name="tutorial_title">Instructions</string>
+    <string name="rules">
+        1. Since you have downloaded this application you need to buy at least 7 pairs of shoes.\n\n
+        2. if you don\'t have the money to do this take out a loan.\n\n
+        3. if you can\'t get a loan sell your house or car and buy shoes.
+    </string>
+    <string name="button_accept">Accept</string>
 </resources>

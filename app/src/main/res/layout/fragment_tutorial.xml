@@ -1,11 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".screens.TutorialFragment">
+        android:fillViewport="true"
+        tools:context=".screens.TutorialFragment"
+        >
 
-    </FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/indent_x2"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/tutorial_title"
+                android:textColor="@color/loginBackgroundColor"
+                android:textSize="@dimen/text_h1"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/indent_x2"
+                android:layout_marginEnd="@dimen/indent_x2"
+                android:layout_weight="1"
+                android:fontFamily="@font/roboto"
+                android:text="@string/rules"
+                android:textSize="@dimen/text_h3"
+                />
+
+            <Button
+                android:id="@+id/buttonAccept"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/loginBackgroundColor"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/button_accept"
+                android:textColor="@color/white_100"
+                />
+        </LinearLayout>
+    </ScrollView>
 </layout>
