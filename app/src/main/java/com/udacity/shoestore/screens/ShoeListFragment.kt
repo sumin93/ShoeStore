@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import com.udacity.shoestore.MainViewModel
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
+import timber.log.Timber
 
 class ShoeListFragment : Fragment() {
 
@@ -16,7 +19,7 @@ class ShoeListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_shoe_list,
@@ -24,5 +27,13 @@ class ShoeListFragment : Fragment() {
             false
         )
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val viewModel = activityViewModels<MainViewModel>().value
+        viewModel.shoeList.observe(viewLifecycleOwner) {
+            Timber.d(it.toString())
+        }
     }
 }
