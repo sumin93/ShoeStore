@@ -21,4 +21,7 @@
         help.
     </string>
     <string name="welcome_start">Show instructions</string>
+
+    <!--  Tutorial Fragment  -->
+
 </resources>
