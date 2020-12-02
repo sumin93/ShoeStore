@@ -43,4 +43,5 @@
     <string name="size_hint">Size</string>
     <string name="add_shoe_button">Add shoe</string>
     <string name="cancel_button">Cancel</string>
+    <string name="error_field_must_not_be_empty">Field must not be empty</string>
 </resources>
