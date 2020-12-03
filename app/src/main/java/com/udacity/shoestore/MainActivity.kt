@@ -23,8 +23,10 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         navController = findNavController(R.id.navHostFragment)
         NavigationUI.setupActionBarWithNavController(this, navController)
-        navController.addOnDestinationChangedListener { _, _, _ ->
+        navController.addOnDestinationChangedListener { controller, _, _ ->
             invalidateOptionsMenu()
+            val shouldShowUpButton = controller.previousBackStackEntry != null
+            supportActionBar?.setDisplayHomeAsUpEnabled(shouldShowUpButton)
         }
     }
 
