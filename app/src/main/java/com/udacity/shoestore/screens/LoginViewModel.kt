@@ -22,11 +22,8 @@ class LoginViewModel : ViewModel() {
         _isAuthorized.value = validateFields(login, password)
     }
 
-    fun correctPassword() {
+    fun resetErrors() {
         _isPasswordFieldCorrect.value = true
-    }
-
-    fun correctLogin() {
         _isLoginFieldCorrect.value = true
     }
 
@@ -35,8 +32,15 @@ class LoginViewModel : ViewModel() {
     }
 
     private fun validateFields(login: String, password: String): Boolean {
-        val loginValid = login.trim().length >= MIN_LOGIN_LENGTH
-        val passwordValid = password.trim().length >= MIN_PASSWORD_LENGTH
+
+        // Just for testing
+        val loginValid = true
+        val passwordValid = true
+
+        // Uncomment this for true validation
+        // val loginValid = login.trim().length >= MIN_LOGIN_LENGTH
+        // val passwordValid = password.trim().length >= MIN_PASSWORD_LENGTH
+
         _isLoginFieldCorrect.value = loginValid
         _isPasswordFieldCorrect.value = passwordValid
         return loginValid && passwordValid

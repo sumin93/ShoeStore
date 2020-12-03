@@ -55,10 +55,10 @@ class LoginFragment : Fragment() {
         }
         with(binding) {
             editTextLogin.addTextChangedListener {
-                viewModel.correctLogin()
+                viewModel.resetErrors()
             }
             editTextPassword.addTextChangedListener {
-                viewModel.correctPassword()
+                viewModel.resetErrors()
             }
             buttonSignIn.setOnClickListener {
                 authorize()
