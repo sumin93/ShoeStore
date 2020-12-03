@@ -11,12 +11,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
-import com.udacity.shoestore.MainViewModel
+import com.udacity.shoestore.viewmodels.MainViewModel
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentAddShoeBinding
+import com.udacity.shoestore.viewmodels.AddShoeViewModel
 
 class AddShoeFragment : Fragment() {
 
