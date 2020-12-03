@@ -23,6 +23,9 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         navController = findNavController(R.id.navHostFragment)
         NavigationUI.setupActionBarWithNavController(this, navController)
+        navController.addOnDestinationChangedListener { _, _, _ ->
+            invalidateOptionsMenu()
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -30,6 +33,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        if (navController.currentDestination?.id == navController.graph.startDestination) {
+            return false
+        }
         menuInflater.inflate(R.menu.top_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
