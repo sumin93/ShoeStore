@@ -29,6 +29,7 @@ class TutorialFragment : Fragment() {
                 TutorialFragmentDirections.actionTutorialFragmentToShoeListFragment()
             )
         )
+        setHasOptionsMenu(false)
         return binding.root
     }
 }
