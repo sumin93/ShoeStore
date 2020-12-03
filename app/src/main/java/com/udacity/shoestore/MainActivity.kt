@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.udacity.shoestore.screens.LoginFragmentDirections
 import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.item_logout -> {
-                navController.navigate(navController.graph.startDestination)
+                navController.navigate(LoginFragmentDirections.actionGlobalLoginFragment())
             }
         }
         return super.onOptionsItemSelected(item)
