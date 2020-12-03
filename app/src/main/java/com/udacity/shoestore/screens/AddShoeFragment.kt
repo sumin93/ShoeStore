@@ -15,13 +15,14 @@ import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.viewmodels.MainViewModel
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentAddShoeBinding
+import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.viewmodels.AddShoeViewModel
 
 class AddShoeFragment : Fragment() {
 
     private lateinit var binding: FragmentAddShoeBinding
     private lateinit var activityViewModel: MainViewModel
-    private lateinit var viewModel: AddShoeViewModel
+    private lateinit var fragmentViewModel: AddShoeViewModel
     private lateinit var navController: NavController
 
     private val textWatcher = object : TextWatcher {
@@ -29,7 +30,7 @@ class AddShoeFragment : Fragment() {
         }
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            viewModel.resetErrors()
+            fragmentViewModel.resetErrors()
         }
 
         override fun afterTextChanged(s: Editable?) {
@@ -47,8 +48,8 @@ class AddShoeFragment : Fragment() {
             false
         )
         navController = findNavController()
-        viewModel = ViewModelProvider(this)[AddShoeViewModel::class.java]
-        viewModel.dataToSave.observe(viewLifecycleOwner) {
+        fragmentViewModel = ViewModelProvider(this)[AddShoeViewModel::class.java]
+        fragmentViewModel.dataToSave.observe(viewLifecycleOwner) {
             activityViewModel.addShoe(it)
             navController.navigateUp()
         }
@@ -60,28 +61,28 @@ class AddShoeFragment : Fragment() {
             editTextSize.addTextChangedListener(textWatcher)
 
             // show/hide errors when input have been validate
-            viewModel.nameIsCorrect.observe(viewLifecycleOwner) {
+            fragmentViewModel.nameIsCorrect.observe(viewLifecycleOwner) {
                 textInputLayoutName.error = if (!it) {
                     getString(R.string.error_field_must_not_be_empty)
                 } else {
                     null
                 }
             }
-            viewModel.descriptionIsCorrect.observe(viewLifecycleOwner) {
+            fragmentViewModel.descriptionIsCorrect.observe(viewLifecycleOwner) {
                 textInputLayoutDescription.error = if (!it) {
                     getString(R.string.error_field_must_not_be_empty)
                 } else {
                     null
                 }
             }
-            viewModel.companyIsCorrect.observe(viewLifecycleOwner) {
+            fragmentViewModel.companyIsCorrect.observe(viewLifecycleOwner) {
                 textInputLayoutCompany.error = if (!it) {
                     getString(R.string.error_field_must_not_be_empty)
                 } else {
                     null
                 }
             }
-            viewModel.sizeIsCorrect.observe(viewLifecycleOwner) {
+            fragmentViewModel.sizeIsCorrect.observe(viewLifecycleOwner) {
                 textInputLayoutSize.error = if (!it) {
                     getString(R.string.error_field_must_not_be_empty)
                 } else {
@@ -95,14 +96,8 @@ class AddShoeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activityViewModel = activityViewModels<MainViewModel>().value
-        binding.buttonAddShoe.setOnClickListener {
-            viewModel.saveData(
-                binding.editTextName.text?.toString(),
-                binding.editTextDescription.text?.toString(),
-                binding.editTextCompany.text?.toString(),
-                binding.editTextSize.text?.toString()
-            )
-        }
+        binding.viewModel = fragmentViewModel
+        binding.shoe = Shoe("",0.0,"","")
         binding.buttonCancel.setOnClickListener {
             navController.navigateUp()
         }

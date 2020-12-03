@@ -3,6 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+
+        <variable
+            name="viewModel"
+            type="com.udacity.shoestore.viewmodels.AddShoeViewModel" />
+    </data>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,7 +48,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
                     android:hint="@string/name_hint"
-                    android:inputType="textVisiblePassword" />
+                    android:inputType="textVisiblePassword"
+                    android:text="@={shoe.name}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -54,7 +66,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
                     android:hint="@string/description_hint"
-                    android:inputType="textVisiblePassword" />
+                    android:inputType="textVisiblePassword"
+                    android:text="@={shoe.description}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,7 +83,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
                     android:hint="@string/company_hint"
-                    android:inputType="textVisiblePassword" />
+                    android:inputType="textVisiblePassword"
+                    android:text="@={shoe.company}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -80,13 +94,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/indent_x1">
 
-                <com.google.android.material.textfield.TextInputEditText
+                <com.udacity.shoestore.views.ShoeSizeEditText
                     android:id="@+id/editTextSize"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto"
                     android:hint="@string/size_hint"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    app:shoeSize="@={shoe.size}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,6 +112,7 @@
                 android:layout_marginBottom="@dimen/indent_x1"
                 android:background="@color/loginBackgroundColor"
                 android:fontFamily="@font/roboto_medium"
+                android:onClick="@{() -> viewModel.saveData(shoe)}"
                 android:text="@string/add_shoe_button"
                 android:textColor="@color/white_100" />
 
