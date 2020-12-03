@@ -45,4 +45,8 @@
     <string name="cancel_button">Cancel</string>
     <string name="error_field_must_not_be_empty">Field must not be empty</string>
     <string name="logout">Logout</string>
+    <string name="welcome_label">Welcome</string>
+    <string name="tutorial_label">Tutorial</string>
+    <string name="shoe_list_label">Shoe List</string>
+    <string name="add_shoe_label">AddShoeFragment</string>
 </resources>

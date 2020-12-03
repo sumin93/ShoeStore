@@ -19,7 +19,7 @@
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.udacity.shoestore.screens.WelcomeFragment"
-        android:label="Welcome">
+        android:label="@string/welcome_label">
         <action
             android:id="@+id/action_welcomeFragment_to_tutorialFragment"
             app:destination="@id/tutorialFragment" />
@@ -27,7 +27,7 @@
     <fragment
         android:id="@+id/tutorialFragment"
         android:name="com.udacity.shoestore.screens.TutorialFragment"
-        android:label="Tutorial">
+        android:label="@string/tutorial_label">
         <action
             android:id="@+id/action_tutorialFragment_to_shoeListFragment"
             app:destination="@id/shoeListFragment"
@@ -37,7 +37,7 @@
     <fragment
         android:id="@+id/shoeListFragment"
         android:name="com.udacity.shoestore.screens.ShoeListFragment"
-        android:label="Shoe List">
+        android:label="@string/shoe_list_label">
         <action
             android:id="@+id/action_shoeListFragment_to_addShoeFragment"
             app:destination="@id/addShoeFragment" />
@@ -45,7 +45,7 @@
     <fragment
         android:id="@+id/addShoeFragment"
         android:name="com.udacity.shoestore.screens.AddShoeFragment"
-        android:label="AddShoeFragment" />
+        android:label="@string/add_shoe_label" />
     <action
         android:id="@+id/action_global_loginFragment"
         app:destination="@id/loginFragment"
