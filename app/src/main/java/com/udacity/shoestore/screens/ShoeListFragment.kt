@@ -1,17 +1,16 @@
 package com.udacity.shoestore.screens
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
-import com.udacity.shoestore.viewmodels.MainViewModel
+import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.databinding.ItemShoeBinding
+import com.udacity.shoestore.viewmodels.MainViewModel
 
 class ShoeListFragment : Fragment() {
 
@@ -33,6 +32,7 @@ class ShoeListFragment : Fragment() {
                 ShoeListFragmentDirections.actionShoeListFragmentToAddShoeFragment()
             )
         )
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -53,5 +53,19 @@ class ShoeListFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.top_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.item_logout -> {
+                findNavController().navigate(LoginFragmentDirections.actionGlobalLoginFragment())
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

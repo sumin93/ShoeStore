@@ -1,8 +1,6 @@
 package com.udacity.shoestore.screens
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -25,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         navController = findNavController(R.id.navHostFragment)
         NavigationUI.setupActionBarWithNavController(this, navController)
         navController.addOnDestinationChangedListener { controller, _, _ ->
-            invalidateOptionsMenu()
             val shouldShowUpButton = controller.previousBackStackEntry != null
             supportActionBar?.setDisplayHomeAsUpEnabled(shouldShowUpButton)
         }
@@ -33,22 +30,5 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp()
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        if (navController.currentDestination?.id == navController.graph.startDestination) {
-            return false
-        }
-        menuInflater.inflate(R.menu.top_menu, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.item_logout -> {
-                navController.navigate(LoginFragmentDirections.actionGlobalLoginFragment())
-            }
-        }
-        return super.onOptionsItemSelected(item)
     }
 }
