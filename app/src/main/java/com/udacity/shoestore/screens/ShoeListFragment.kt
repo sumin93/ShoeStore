@@ -49,12 +49,7 @@ class ShoeListFragment : Fragment() {
                         linearLayoutContainerShoes,
                         true
                     )
-                    with(shoeItemBinding) {
-                        textViewName.text = shoe.name
-                        textViewCompany.text = shoe.company
-                        textViewDescription.text = shoe.description
-                        textViewSize.text = shoe.size.toString()
-                    }
+                    shoeItemBinding.shoe = shoe
                 }
             }
         }

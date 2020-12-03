@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,6 +34,7 @@
             android:fontFamily="@font/roboto_medium"
             android:textColor="@color/white_100"
             android:textSize="@dimen/text_h3"
+            android:text="@{shoe.name}"
             app:layout_constraintStart_toEndOf="@id/icon"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Alpine Sneaker" />
@@ -40,6 +47,7 @@
             android:fontFamily="@font/roboto_medium"
             android:textColor="@color/white_100"
             android:textSize="@dimen/text_h2"
+            android:text="@{Double.toString(shoe.size)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="10.5" />
@@ -52,6 +60,7 @@
             android:fontFamily="@font/roboto_medium"
             android:textColor="@color/white_100"
             android:textSize="@dimen/text_h4"
+            android:text="@{shoe.company}"
             app:layout_constraintStart_toEndOf="@id/icon"
             app:layout_constraintTop_toBottomOf="@id/textViewName"
             tools:text="Merrell" />
@@ -62,6 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/indent_x1"
             android:fontFamily="@font/roboto"
+            android:text="@{shoe.description}"
             app:layout_constraintStart_toEndOf="@id/icon"
             app:layout_constraintTop_toBottomOf="@id/textViewCompany"
             tools:text="BLACK RIPSTOP" />
