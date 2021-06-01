@@ -48,5 +48,5 @@
     <string name="welcome_label">Welcome</string>
     <string name="tutorial_label">Tutorial</string>
     <string name="shoe_list_label">Shoe List</string>
-    <string name="add_shoe_label">AddShoeFragment</string>
+    <string name="add_shoe_label">Add Shoe</string>
 </resources>
