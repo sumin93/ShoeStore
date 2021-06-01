@@ -38,11 +38,11 @@ class AddShoeViewModel : ViewModel() {
         shoe: Shoe
     ) {
         val (name, size, company, description, _) = shoe
-        val nameIsCorrect = !name.isBlank()
+        val nameIsCorrect = name.isNotBlank()
         _nameIsCorrect.value = nameIsCorrect
-        val descriptionIsCorrect = !description.isBlank()
+        val descriptionIsCorrect = description.isNotBlank()
         _descriptionIsCorrect.value = descriptionIsCorrect
-        val companyIsCorrect = !company.isBlank()
+        val companyIsCorrect = company.isNotBlank()
         _companyIsCorrect.value = companyIsCorrect
         val sizeIsCorrect = size > 0
         _sizeIsCorrect.value = sizeIsCorrect
