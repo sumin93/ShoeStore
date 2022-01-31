@@ -36,7 +36,7 @@
     <string name="content_description_icon_shoe">Show icon</string>
 
     <!--  Add shoe Fragment  -->
-    <string name="add_new_shoe_label">Add new shoe</string>
+    <string name="add_new_shoe_label">Add new sshoe</string>
     <string name="name_hint">Name</string>
     <string name="description_hint">Description</string>
     <string name="company_hint">Company</string>
