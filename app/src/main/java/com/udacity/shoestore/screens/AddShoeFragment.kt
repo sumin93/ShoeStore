@@ -89,7 +89,7 @@ class AddShoeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         activityViewModel = activityViewModels<MainViewModel>().value
         binding.viewModel = fragmentViewModel
-        binding.shoe = Shoe("",0.0,"","")
+        binding.shoe = Shoe("","","")
         binding.buttonCancel.setOnClickListener {
             navController.navigateUp()
         }
