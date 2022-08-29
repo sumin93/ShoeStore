@@ -37,17 +37,15 @@ class AddShoeViewModel : ViewModel() {
     fun saveData(
         shoe: Shoe
     ) {
-        val (name, size, company, description) = shoe
+        val (name, company, description) = shoe
         val nameIsCorrect = name.isNotBlank()
         _nameIsCorrect.value = nameIsCorrect
         val descriptionIsCorrect = description.isNotBlank()
         _descriptionIsCorrect.value = descriptionIsCorrect
         val companyIsCorrect = company.isNotBlank()
         _companyIsCorrect.value = companyIsCorrect
-        val sizeIsCorrect = size > 0
-        _sizeIsCorrect.value = sizeIsCorrect
 
-        val dataIsReady = nameIsCorrect && descriptionIsCorrect && companyIsCorrect && sizeIsCorrect
+        val dataIsReady = nameIsCorrect && descriptionIsCorrect && companyIsCorrect
 
         if (dataIsReady) {
             _dataToSave.value = shoe
