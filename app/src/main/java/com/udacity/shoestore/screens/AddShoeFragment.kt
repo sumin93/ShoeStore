@@ -58,7 +58,7 @@ class AddShoeFragment : Fragment() {
             editTextName.addTextChangedListener(textWatcher)
             editTextCompany.addTextChangedListener(textWatcher)
             editTextDescription.addTextChangedListener(textWatcher)
-            editTextSize.addTextChangedListener(textWatcher)
+
 
             // show/hide errors when input have been validate
             fragmentViewModel.nameIsCorrect.observe(viewLifecycleOwner) {
@@ -82,13 +82,7 @@ class AddShoeFragment : Fragment() {
                     null
                 }
             }
-            fragmentViewModel.sizeIsCorrect.observe(viewLifecycleOwner) {
-                textInputLayoutSize.error = if (!it) {
-                    getString(R.string.error_field_must_not_be_empty)
-                } else {
-                    null
-                }
-            }
+
         }
         return binding.root
     }
